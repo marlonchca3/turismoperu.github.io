@@ -1,3 +1,4 @@
+import { DEFAULT_LANGUAGE_CONTEXT, LanguageContext } from '../../i18n/LanguageContext';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -14,6 +15,8 @@ import './TopWrapper.scss';
 import TopAttractionCategories from '../../containers/top-categories/TopAttractionCategories';
 
 export class TopWrapperClass extends React.Component {
+  static contextType = LanguageContext;
+
   componentDidMount() {
     const { fetchTopAttractions, fetchTopCountries } = this.props;
     fetchTopAttractions();
@@ -21,6 +24,7 @@ export class TopWrapperClass extends React.Component {
   }
 
   render() {
+    const { t = DEFAULT_LANGUAGE_CONTEXT.t } = this.context;
     const { topAttractions, topCountries } = this.props;
 
     if (!topAttractions.length || !topCountries.length) {
@@ -33,19 +37,19 @@ export class TopWrapperClass extends React.Component {
           <Zigzag />
         </div>
         <div className="top-slider">
-          <span className="title">Top Tourists Attractions Worldwide</span>
+          <span className="title">{t("Las mejores atracciones del Perú")}</span>
           <Slider data={topAttractions} />
         </div>
         <div className="top-slider">
-          <span className="title">Top Destinations</span>
+          <span className="title">{t("Destinos destacados")}</span>
           <Slider data={topAttractions} type="destinations" />
         </div>
         <div className="top-slider">
-          <span className="title">Top Countries To Visit</span>
+          <span className="title">{t("Lugares del Perú para visitar")}</span>
           <Slider data={topCountries} type="countries" />
         </div>
         <div className="top-slider">
-          <span className="title">Top Attractions Categories</span>
+          <span className="title">{t("Categorías de actividades populares")}</span>
           <TopAttractionCategories />
         </div>
       </div>

@@ -1,39 +1,43 @@
+import { useTranslation } from '../../i18n/LanguageContext';
 import React from 'react';
 import './TextCallouts.scss';
 import { calendar, duration, heart } from '../../constants/imgs/text-callouts';
 
 const callouts = [
   {
-    title: 'Flexibile Booking',
+    title: 'Reservas flexibles',
     img: calendar,
-    text: "Don't stress if your plans change. Cancel up to 24 hours before most tours and activities for a full refund.",
+    text: "Si tus planes cambian, cancela hasta 24 horas antes en la mayoría de los tours y actividades para recibir un reembolso completo.",
   },
   {
-    title: 'Faster Acess',
+    title: 'Acceso más rápido',
     img: duration,
-    text: 'Skip the long ticket lines and get straight to the good stuff in the places everyone wants to visit.',
+    text: 'Evita las largas filas y disfruta de los lugares del Perú que siempre quisiste conocer.',
   },
   {
-    title: 'Friendly Help',
+    title: 'Atención cercana',
     img: heart,
-    text: "We're standing by 24/7 to make your experience incredible. Reach us by phone, email, or WhatsApp.",
+    text: "Estamos disponibles para ayudarte a vivir una experiencia increíble. Contáctanos por teléfono, correo o WhatsApp.",
   },
 ];
 
 export const calloutsLength = callouts.length;
 
-const TextCallouts = () => (
-  <div className="text-callouts-container">
+const TextCallouts = () => {
+  const { t } = useTranslation();
+  return (
+<div className="text-callouts-container">
     {callouts.map(({ title, img, text }) => (
       <div key={title} className="callout">
         <div className="img-wrapper">
-          <img src={img} alt={title} />
+          <img src={img} alt={t(title)} />
         </div>
-        <span className="title">{title}</span>
-        <span className="description">{text}</span>
+        <span className="title">{t(title)}</span>
+        <span className="description">{t(text)}</span>
       </div>
     ))}
   </div>
-);
+  );
+};
 
 export default TextCallouts;

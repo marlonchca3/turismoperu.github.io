@@ -15,10 +15,10 @@ describe('<Footer />', () => {
 
   it('renders Selector components with correct props', () => {
     const wrapper = shallow(<Footer />);
-    expect(wrapper.find(Selector).at(0).props().title).toBe('language');
+    expect(wrapper.find(Selector).at(0).props().title).toBe('idioma');
     expect(wrapper.find(Selector).at(0).props().options).toEqual(language);
 
-    expect(wrapper.find(Selector).at(1).props().title).toBe('currency');
+    expect(wrapper.find(Selector).at(1).props().title).toBe('moneda');
     expect(wrapper.find(Selector).at(1).props().options).toEqual(currency);
   });
 
@@ -29,13 +29,13 @@ describe('<Footer />', () => {
 
   it('renders FooterNavigation component with correct props', () => {
     const wrapper = shallow(<Footer />);
-    expect(wrapper.find(FooterNavigation).at(0).props().title).toBe('Support');
+    expect(wrapper.find(FooterNavigation).at(0).props().title).toBe('Ayuda');
     expect(wrapper.find(FooterNavigation).at(0).props().items).toEqual(support);
 
-    expect(wrapper.find(FooterNavigation).at(1).props().title).toBe('Company');
+    expect(wrapper.find(FooterNavigation).at(1).props().title).toBe('Empresa');
     expect(wrapper.find(FooterNavigation).at(1).props().items).toEqual(company);
 
-    expect(wrapper.find(FooterNavigation).at(2).props().title).toBe('Work With Us');
+    expect(wrapper.find(FooterNavigation).at(2).props().title).toBe('Trabaja con nosotros');
     expect(wrapper.find(FooterNavigation).at(2).props().items).toEqual(workWithUs);
   });
 

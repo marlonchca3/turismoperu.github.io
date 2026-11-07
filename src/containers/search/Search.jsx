@@ -11,19 +11,19 @@ import AutoComplete from '../../components/search/AutoComplete';
 import Button from '../../components/button/Button';
 import { ReactComponent as SearchIcon } from '../../assets/svgs/search.svg';
 
-const SUGGESTIONS = ['Paris', 'Paris, France', 'New York', 'New York City', 'Barcelona', 'Barcelona, Spain'];
+const SUGGESTIONS = ['Cusco', 'Cusco, Perú', 'Machu Picchu', 'Ica', 'Huacachina', 'Arequipa', 'Arequipa, Perú'];
 const CITIES_SUGGESTIONS = [
   {
     city: 'paris',
-    suggestions: ['Paris', 'Paris, France'],
+    suggestions: ['Cusco', 'Cusco, Perú', 'Machu Picchu'],
   },
   {
     city: 'barcelona',
-    suggestions: ['Barcelona', 'Barcelona, Spain'],
+    suggestions: ['Arequipa', 'Arequipa, Perú'],
   },
   {
     city: 'new-york',
-    suggestions: ['New York', 'New York City'],
+    suggestions: ['Ica', 'Huacachina'],
   },
 ];
 
@@ -107,7 +107,7 @@ export class SearchClass extends React.Component {
     const { simplified } = this.props;
 
     if (!simplified) {
-      return (<Button text="Search" btnClass="bg-blue" click={(e) => this.handleSubmit(e, history)} />);
+      return (<Button text="Buscar" btnClass="bg-blue" click={(e) => this.handleSubmit(e, history)} />);
     }
     return (
       <button type="submit" onClick={(e) => this.handleSubmit(e, history)}>
@@ -138,7 +138,7 @@ export class SearchClass extends React.Component {
                 showSuggestions={showSuggestions}
                 activeSuggestion={activeSuggestion}
                 filteredSuggestions={filteredSuggestions}
-                placeHolder={!simplified ? '' : 'Where are you going?'}
+                placeHolder={!simplified ? '' : '¿A dónde vas?'}
                 simplified={simplified}
               />
               {this.buttonRender(history)}

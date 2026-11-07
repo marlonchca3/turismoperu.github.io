@@ -1,3 +1,4 @@
+import { DEFAULT_LANGUAGE_CONTEXT, LanguageContext } from '../../i18n/LanguageContext';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -17,6 +18,8 @@ import TopLocationCard from '../top-location-card/TopLocationCard';
 export const MAX_CARDS = 4;
 
 export class TopContentClass extends React.Component {
+  static contextType = LanguageContext;
+
   state = {
     activeCity: 'paris',
     cities: {},
@@ -50,6 +53,7 @@ export class TopContentClass extends React.Component {
   };
 
   render() {
+    const { t = DEFAULT_LANGUAGE_CONTEXT.t } = this.context;
     const { activeCity, cities } = this.state;
     const { isResult } = this.props;
     const activeCityData = cities[activeCity];
@@ -69,7 +73,7 @@ export class TopContentClass extends React.Component {
             location={activeCityData}
           />
           <div className="activities-container">
-            <span className="card-title">Unmissable sights and activities</span>
+            <span className="card-title">{t("Lugares y actividades imperdibles")}</span>
             <div className="activities-cards">
               {activeCityData.activities.slice(0, MAX_CARDS).map((activity) => (
                 <TourCard
@@ -81,7 +85,7 @@ export class TopContentClass extends React.Component {
             </div>
           </div>
           <div className="activities-container">
-            <span className="card-title">Extraordinary things to do</span>
+            <span className="card-title">{t("Experiencias extraordinarias")}</span>
             <div className="activities-cards">
               {activeCityData.todo.slice(0, MAX_CARDS).map((activity) => (
                 <TourCard
@@ -93,12 +97,12 @@ export class TopContentClass extends React.Component {
             </div>
           </div>
           <Button
-            text={`Find more activities in ${capitalCase(activeCity)}`}
+            text={t(`Encuentra más actividades en ${capitalCase(activeCity)}`)}
             btnClass="bg-none"
           />
 
           <div className="most-iconic">
-            <span className="card-title">{`${capitalCase(activeCity)} most iconic sights`}</span>
+            <span className="card-title">{t(`Los lugares más emblemáticos de ${capitalCase(activeCity)}`)}</span>
             <div className="top-location-card-wrapper">
               {activeCityData.iconic.map((location) => (
                 <TopLocationCard

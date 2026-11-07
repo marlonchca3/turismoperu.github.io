@@ -238,3 +238,16 @@
     }
   }
 }
+
+.tour-details-container {
+  min-width: 0;
+  flex: 1;
+
+  .tour-details-title { overflow-wrap: anywhere; }
+
+  &.home { min-height: 10.5rem; padding-bottom: 2.5rem; }
+}
+
+@media (min-width: 768px) {
+  .tour-details-container.home { height: auto; min-height: 12rem; }
+}

@@ -1,3 +1,4 @@
+import { LANGUAGES, useTranslation } from '../../i18n/LanguageContext';
 import React from 'react';
 import './Footer.scss';
 import Selector from './Selector';
@@ -9,66 +10,46 @@ import { ReactComponent as Instagram } from '../../assets/svgs/socialMedia/insta
 import { ReactComponent as Linkedin } from '../../assets/svgs/socialMedia/linkedin.svg';
 import { ReactComponent as Pinterest } from '../../assets/svgs/socialMedia/pinterest.svg';
 import { ReactComponent as Twitter } from '../../assets/svgs/socialMedia/twitter.svg';
+import { CURRENCIES } from '../../booking/money';
+import { useBooking } from '../../booking/BookingContext';
 
-export const language = [
-  'English (United States)',
-  'Densk',
-  'Deutsch (Deutschland)',
-  'Deutsch (Österreich)',
-  'English',
-  'English (United Kingdom)',
-  'Español (España)',
-  'Español (México)',
-  'Français',
-  'Italiano',
-  'Nederlands',
-  'Norsk',
-  'Polski',
-];
+export const language = LANGUAGES.map(({ label }) => label);
 
-export const currency = [
-  'Euro',
-  'British Pound',
-  'Hong Kong Dollar',
-  'Croatian Kuna',
-  'Hungarian Forint',
-  'Indonesian Rupee',
-  'Indian Rupee',
-  'Japanese Yen',
-  'South Korean Won',
-  'Moroccan Dirham',
-];
+export const currency = CURRENCIES.map(({ label }) => label);
 
-export const support = ['Contact', 'Legal', 'Privacy Policy', 'Terms of Use'];
+export const support = ['Contacto', 'Legal', 'Política de privacidad', 'Condiciones de uso'];
 
 export const company = [
-  'About Us',
-  'Careers',
+  'Sobre nosotros',
+  'Empleo',
   'Blog',
-  'Press',
-  'Gift Cards',
-  'Magazine',
+  'Prensa',
+  'Tarjetas de regalo',
+  'Revista',
 ];
 
 export const workWithUs = [
-  'Supplier Administration',
-  'Affiliate Partner Administration',
+  'Administración de proveedores',
+  'Administración de afiliados',
 ];
 
-const Footer = () => (
-  <div className="footer-container">
+const Footer = () => {
+  const { t, language: currentLanguage, setLanguage } = useTranslation();
+  const { currency: currentCurrency, setCurrency } = useBooking();
+  return (
+<div className="footer-container">
     <div className="selectors">
-      <Selector title="language" options={language} />
-      <Selector title="currency" options={currency} />
+      <Selector title="idioma" options={language} value={currentLanguage} onChange={(event) => setLanguage(event.target.value)} />
+      <Selector title="moneda" options={currency} value={currentCurrency} onChange={(event) => setCurrency(event.target.value)} />
     </div>
     <Mobile />
-    <FooterNavigation title="Support" items={support} />
-    <FooterNavigation title="Company" items={company} />
-    <FooterNavigation title="Work With Us" items={workWithUs} />
+    <FooterNavigation title="Ayuda" items={support} />
+    <FooterNavigation title="Empresa" items={company} />
+    <FooterNavigation title="Trabaja con nosotros" items={workWithUs} />
     <PayMethods />
 
     <div className="copyrights-social">
-      <span>© 2020 GetYourGuideClone. Cloned in Berlin by Ingrid Amaral.</span>
+      <span>{t("© machupicchiperu. Turismo y experiencias en Perú.")}</span>
       <div className="social">
         <Facebook />
         <Instagram />
@@ -78,6 +59,7 @@ const Footer = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default Footer;

@@ -1,18 +1,22 @@
+import { useTranslation } from '../../i18n/LanguageContext';
 import React from 'react';
 import PropTypes from 'prop-types';
 import './TopLocationCard.scss';
 
 const TopLocationCard = ({
   location, count, img, type,
-}) => (
-  <div className={`top-location-card-container ${type}`}>
-    <img src={img} alt={location} />
+}) => {
+  const { t } = useTranslation();
+  return (
+<div className={`top-location-card-container ${type}`}>
+    <img src={img} alt={t(location)} />
     <div className="top-location-details">
-      <span className="title">{location}</span>
-      <span className="count">{`${count} tours & activities`}</span>
+      <span className="title">{t(location)}</span>
+      <span className="count">{t(`${count} tours y actividades`)}</span>
     </div>
   </div>
-);
+  );
+};
 
 export default TopLocationCard;
 

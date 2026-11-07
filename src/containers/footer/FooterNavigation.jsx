@@ -1,9 +1,12 @@
+import { DEFAULT_LANGUAGE_CONTEXT, LanguageContext } from '../../i18n/LanguageContext';
 import React from 'react';
 import PropTypes from 'prop-types';
 import './FooterNavigation.scss';
 import { ReactComponent as Caret } from '../../assets/svgs/caret.svg';
 
 class FooterNavigation extends React.Component {
+  static contextType = LanguageContext;
+
   state = {
     open: false,
   }
@@ -13,17 +16,18 @@ class FooterNavigation extends React.Component {
   }
 
   render() {
+    const { t = DEFAULT_LANGUAGE_CONTEXT.t } = this.context;
     const { title, items } = this.props;
     const { open } = this.state;
     return (
       <div className="footer-navigation-container">
         <div className="title" onClick={this.handleToggle} onKeyDown={this.handleToggle}>
-          <span>{title}</span>
+          <span>{t(title)}</span>
           <Caret />
         </div>
         <div className={`items ${open ? 'open' : 'close'}`}>
           {items.map((item) => (
-            <div className="item" key={title + item}>{item}</div>
+            <div className="item" key={title + item}>{t(item)}</div>
           ))}
         </div>
       </div>

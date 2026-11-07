@@ -27,7 +27,8 @@ describe('<Navigation />', () => {
   it('renders dropwdown', () => {
     const wrapper = shallow(<Navigation {...defaultProps} />).find('.curr-lang-icons').at(0);
 
-    expect(wrapper.find('.dropdown-content').exists()).toBe(true);
+    expect(wrapper.find('select').exists()).toBe(true);
+    expect(wrapper.find('option').map((option) => option.text())).toEqual(['Español', 'English', 'Português']);
   });
 
   it('dooes not render dropwdown', () => {

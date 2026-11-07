@@ -177,3 +177,17 @@
     padding: 0 6rem;
   }
 }
+.newsletter-container .sign { width: 100%; }
+
+@media (min-width: 768px) {
+  .newsletter-container .sign {
+    .img-wrapper {
+      align-self: stretch;
+      min-height: 360px;
+
+      img { width: 100%; height: 100%; object-fit: cover; }
+    }
+
+    .form-wrapper { min-width: 0; padding: 1.5rem; }
+  }
+}

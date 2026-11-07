@@ -1,3 +1,6 @@
+import { useTranslation } from '../../i18n/LanguageContext';
+import { useBooking } from '../../booking/BookingContext';
+import { Link } from 'react-router-dom';
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import { activityPropTypes } from '../../propTypes/activityType';
@@ -9,9 +12,9 @@ import ActivityDuration from './ActivityDuration';
 import { ReactComponent as Like } from '../../assets/svgs/like.svg';
 import { ReactComponent as LikeHome } from '../../assets/svgs/like-home.svg';
 
-class TourCardDetails extends React.Component {
-  render() {
-    const { activity, isResult } = this.props;
+const TourCardDetails = ({ activity, isResult }) => {
+    const { t } = useTranslation();
+    const { formatPrice } = useBooking();
     const {
       title,
       duration,
@@ -28,7 +31,7 @@ class TourCardDetails extends React.Component {
     return (
       <div className={`tour-details-container ${page}`}>
         <div className="header">
-          <span className="tour-details-title">{title}</span>
+          <span className="tour-details-title">{t(title)}</span>
           <div className="like">
             {isResult ? <Like /> : <LikeHome />}
           </div>
@@ -37,7 +40,7 @@ class TourCardDetails extends React.Component {
           <div className={`rating-stars-container ${page} top`}>
             <RatingStars averageRating={averageRating} />
             <span className="rating">{ totalRating}</span>
-            <span className="rating-title">{ totalRatingTitle }</span>
+            <span className="rating-title">{ t(totalRatingTitle) }</span>
           </div>
           {isGygOriginal && (
             <Stamp position="top" sentKey="gygOriginal" page={page} />
@@ -48,7 +51,7 @@ class TourCardDetails extends React.Component {
           duration={duration}
           position="top"
         />
-        <div className={`tour-description ${page}`}>{smallDescription}</div>
+        <div className={`tour-description ${page}`}>{t(smallDescription)}</div>
         <ActivityDuration
           page={page}
           duration={duration}
@@ -58,31 +61,31 @@ class TourCardDetails extends React.Component {
           <Stamp position="bottom" sentKey="gygOriginal" page={page} />
         )}
         {isResult && freeCancellationFlag && (
-          <span className="free-cancellation-flag">
-            Free cancellation up to 24 hours in advance
-          </span>
+          <span className="free-cancellation-flag">{t("Cancelación gratuita hasta 24 horas antes")}</span>
         )}
         <div className="tour-details-overall">
           <div className={`rating-column ${page}`}>
             <div className={`rating-stars-container ${page} bottom`}>
               <RatingStars averageRating={averageRating} />
               <span className="rating">{ totalRating}</span>
-              <span className="rating-title">{ totalRatingTitle }</span>
+              <span className="rating-title">{ t(totalRatingTitle) }</span>
             </div>
           </div>
 
           <div className="tour-price">
-            <span className="from-price">From</span>
-            <span className="price">{price.original}</span>
+            <span className="from-price">{t("Desde")}</span>
+            <span className="price">{formatPrice(price.original)}</span>
             {!isResult && (
-              <span className="card-details-message">{cardBannerMessage}</span>
+              <span className="card-details-message">{t(cardBannerMessage)}</span>
             )}
           </div>
         </div>
+        {activity.tourId != null && (
+          <Link className="booking-cta" to={`/reserva/${activity.tourId}`}>{t('Reservar')}</Link>
+        )}
       </div>
     );
-  }
-}
+};
 
 export default TourCardDetails;
 

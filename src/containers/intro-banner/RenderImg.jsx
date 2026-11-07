@@ -27,7 +27,7 @@ class RenderImg extends React.Component {
       <div className="intro-banner-images">
         {images.map((img, idx) => (
           <div className="image" key={img}>
-            <img className={activeIdx === idx ? 'show' : 'hide'} src={img} alt="img" />
+            <img className={activeIdx === idx ? 'show' : 'hide'} src={img} alt="Destinos turísticos del Perú" />
           </div>
         ))}
       </div>

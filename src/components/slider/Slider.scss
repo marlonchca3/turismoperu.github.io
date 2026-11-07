@@ -74,3 +74,17 @@
   }
 }
 
+
+.slider-container {
+  min-width: 0;
+
+  .splide { width: 100%; min-width: 0; }
+  .splide__slide { flex-shrink: 0; }
+
+  .splide__slide .top-location-card-container {
+    width: 100%;
+    height: 12rem;
+
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+}

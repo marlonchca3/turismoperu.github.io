@@ -1,33 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Splide } from '@splidejs/react-splide';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 import './Slider.scss';
 import TopLocationCard from '../top-location-card/TopLocationCard';
 import { topAttractionsPropType } from '../../propTypes/topAttractionsType';
 import { topCountriesPropType } from '../../propTypes/topCountriesType';
 
 const SLIDER_OPTIONS = {
+  perPage: 5,
   perMove: 1,
   type: 'loop',
   gap: '1rem',
   pagination: false,
   breakpoints: {
-    450: {
-      perPage: 1,
-      cover: true,
-    },
-    800: {
-      perPage: 3,
-      cover: false,
-    },
-    1400: {
-      perPage: 4,
-      cover: false,
-    },
-    2000: {
-      perPage: 5,
-      cover: false,
-    },
+    479: { perPage: 1 },
+    767: { perPage: 2 },
+    1023: { perPage: 3 },
+    1399: { perPage: 4 },
   },
 };
 
@@ -42,13 +31,14 @@ const Slider = ({ data, type }) => {
         options={SLIDER_OPTIONS}
       >
         {data.map((attraction) => (
-          <TopLocationCard
-            key={attraction.destination + attraction.count}
-            location={attraction.destination}
-            count={attraction.activitiesCount}
-            img={attraction.img}
-            type={type}
-          />
+          <SplideSlide key={attraction.destination + attraction.count}>
+            <TopLocationCard
+              location={attraction.destination}
+              count={attraction.activitiesCount}
+              img={attraction.img}
+              type={type}
+            />
+          </SplideSlide>
         ))}
       </Splide>
     </div>

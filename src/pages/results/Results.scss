@@ -140,3 +140,29 @@
     }
   }
 }
+.results-container .sort {
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .results-found { min-width: 0; }
+
+  .sort-by {
+    min-width: 0;
+    max-width: 100%;
+
+    > span { flex-shrink: 0; }
+    select { min-width: 0; max-width: 100%; }
+  }
+}
+
+@media (max-width: 767px) {
+  .results-container .sort {
+    align-items: stretch;
+    flex-direction: column;
+
+    .sort-by {
+      justify-content: space-between;
+      select { flex: 1; }
+    }
+  }
+}

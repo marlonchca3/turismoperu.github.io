@@ -1,10 +1,11 @@
+import { useTranslation } from '../../i18n/LanguageContext';
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Stamp.scss';
 
 const STAMPS = {
-  default: 'Find Your Next Adventure',
-  gygOriginal: 'GetYourGuide Original',
+  default: 'Encuentra tu próxima aventura',
+  gygOriginal: 'machupicchiperu Original',
 };
 
 const getStampKey = (sentKey) => {
@@ -15,10 +16,11 @@ const getStampKey = (sentKey) => {
 };
 
 const Stamp = ({ position, sentKey, page }) => {
+  const { t } = useTranslation();
   const stampKey = getStampKey(sentKey);
   return (
     <div className="stamp-container">
-      <span className={`${stampKey} ${position} ${page}`}>{STAMPS[stampKey]}</span>
+      <span className={`${stampKey} ${position} ${page}`}>{t(STAMPS[stampKey])}</span>
     </div>
   );
 };

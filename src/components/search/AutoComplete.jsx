@@ -1,3 +1,4 @@
+import { useTranslation } from '../../i18n/LanguageContext';
 import React from 'react';
 import PropTypes from 'prop-types';
 import './AutoComplete.scss';
@@ -13,8 +14,10 @@ const AutoComplete = ({
   userInput,
   placeHolder,
   simplified,
-}) => (
-  <div className={`search-input-container${simplified ? ' input-simplified' : ''}`}>
+}) => {
+  const { t } = useTranslation();
+  return (
+<div className={`search-input-container${simplified ? ' input-simplified' : ''}`}>
     <label htmlFor="search-input">
       <input
         id="search-input"
@@ -23,9 +26,9 @@ const AutoComplete = ({
         onKeyDown={onKeyDown}
         value={userInput}
         autoComplete="off"
-        placeholder={placeHolder}
+        placeholder={t(placeHolder)}
       />
-      <span className="float-search">Paris, Barcelona...</span>
+      <span className="float-search">{t("Cusco, Arequipa, Ica...")}</span>
     </label>
     {showSuggestions && userInput && (
       <SuggestionsList
@@ -35,7 +38,8 @@ const AutoComplete = ({
       />
     )}
   </div>
-);
+  );
+};
 
 AutoComplete.propTypes = {
   userInput: PropTypes.string.isRequired,

@@ -1,3 +1,4 @@
+import { DEFAULT_LANGUAGE_CONTEXT, LanguageContext } from '../../i18n/LanguageContext';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -6,6 +7,8 @@ import './FilterSection.scss';
 import { ReactComponent as Caret } from '../../assets/svgs/caret.svg';
 
 class FilterSection extends React.Component {
+  static contextType = LanguageContext;
+
   state = {
     isOpen: false,
   };
@@ -15,6 +18,7 @@ class FilterSection extends React.Component {
   };
 
   render() {
+    const { t = DEFAULT_LANGUAGE_CONTEXT.t } = this.context;
     const {
       title, options, filterOptions, optionSelected,
     } = this.props;
@@ -28,7 +32,7 @@ class FilterSection extends React.Component {
               className={`title ${isOpen ? 'rotate-caret' : ''}`}
               onClick={this.handleOpenOptions}
             >
-              <span>{title}</span>
+              <span>{t({ Price: 'Precio', Duration: 'Duración', Services: 'Servicios' }[title] || title)}</span>
               <Caret />
             </div>
             <form className={isOpen ? 'open' : ''}>
@@ -41,7 +45,7 @@ class FilterSection extends React.Component {
                     type="checkbox"
                     value={option.id}
                   />
-                  {option.name}
+                  {t(option.name)}
                 </label>
               ))}
             </form>

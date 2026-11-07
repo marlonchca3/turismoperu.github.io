@@ -1,3 +1,4 @@
+import { useTranslation } from '../../i18n/LanguageContext';
 import React from 'react';
 import PropTypes from 'prop-types';
 import './TopCities.scss';
@@ -14,9 +15,11 @@ export const CITIES = [
   'rome',
 ];
 
-const TopCities = ({ fetchCity, activeCity }) => (
-  <div className="top-cities-container">
-    <span className="title">Explore our top destinations</span>
+const TopCities = ({ fetchCity, activeCity }) => {
+  const { t } = useTranslation();
+  return (
+<div className="top-cities-container">
+    <span className="title">{t("Explora nuestros mejores destinos")}</span>
     <div className="top-cities">
       {CITIES.map((city) => (
         <TopCity
@@ -28,7 +31,8 @@ const TopCities = ({ fetchCity, activeCity }) => (
       ))}
     </div>
   </div>
-);
+  );
+};
 
 export default TopCities;
 

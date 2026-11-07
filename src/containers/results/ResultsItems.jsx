@@ -40,7 +40,7 @@ class ResultsItems extends React.Component {
             activity={tour}
           />
         ))}
-        {hideBtn ? null : <Button text="Show more" btnClass="bg-blue" click={this.handleClick} />}
+        {hideBtn ? null : <Button text="Ver más" btnClass="bg-blue" click={this.handleClick} />}
       </div>
     );
   }

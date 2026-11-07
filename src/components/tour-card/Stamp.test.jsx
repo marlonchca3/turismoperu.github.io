@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import Stamp from './Stamp';
 
 const STAMPS = {
-  default: 'Find Your Next Adventure',
-  gygOriginal: 'GetYourGuide Original',
+  default: 'Encuentra tu próxima aventura',
+  gygOriginal: 'machupicchiperu Original',
 };
 
 const defaultProps = {

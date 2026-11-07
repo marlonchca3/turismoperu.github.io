@@ -109,3 +109,33 @@
     }
   }
 }
+
+.top-content-wrapper .activities-container .activities-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.top-content-wrapper > .btn {
+  max-width: calc(100% - 2rem);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .top-content-wrapper .activities-container .activities-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .top-content-wrapper .activities-container .activities-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .top-content-wrapper .activities-container .activities-cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

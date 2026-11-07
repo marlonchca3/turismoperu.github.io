@@ -85,3 +85,18 @@
 // NOTEBOOK
 @media (min-width: 1024px) {
 }
+
+.search-container,
+.search-input-container { min-width: 0; }
+
+@media (max-width: 767px) {
+  .search-container input[type='text'] { font-size: 1rem; }
+}
+
+@media (max-width: 767px) {
+  .search-container .search-form:not(.simplified) .suggestions {
+    position: static;
+    max-height: 10rem;
+    overflow-y: auto;
+  }
+}

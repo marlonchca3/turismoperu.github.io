@@ -1,3 +1,4 @@
+import { DEFAULT_LANGUAGE_CONTEXT, LanguageContext } from '../../i18n/LanguageContext';
 import React from 'react';
 import './Newsletter.scss';
 import Button from '../../components/button/Button';
@@ -5,6 +6,8 @@ import { ReactComponent as Form } from '../../assets/svgs/details.svg';
 import { ReactComponent as Separator } from '../../assets/svgs/separators/stroke.svg';
 
 class Newsletter extends React.Component {
+  static contextType = LanguageContext;
+
   state ={
     userInput: '',
   }
@@ -22,6 +25,7 @@ class Newsletter extends React.Component {
   }
 
   render() {
+    const { t = DEFAULT_LANGUAGE_CONTEXT.t } = this.context;
     const { userInput } = this.state;
     return (
       <div className="newsletter-container">
@@ -31,38 +35,31 @@ class Newsletter extends React.Component {
         <div className="sign">
           <div className="img-wrapper">
             <img
-              src="https://cdn.getyourguide.com/tf/assets/static/newsletter-signup/newsletter-background.jpg"
-              alt="newslleter"
+              src={`${process.env.PUBLIC_URL}/images/ica.jpg`}
+              alt={t("Oasis de Huacachina, Ica, Perú")}
             />
           </div>
           <div className="form-wrapper">
-            <span className="title">Wish you were there</span>
+            <span className="title">{t("Tu próxima aventura te espera")}</span>
             <span className="description">
-              {`Sign up for our newsletter and discover travel experiences you'll
-              really want to try.`}
+              {t(`Suscríbete a nuestro boletín y descubre experiencias de viaje por el Perú
+              que querrás vivir.`)}
             </span>
             <form>
               <div className="input-wrapper">
                 <label htmlFor="email">
-                  <input type="email" id="email" value={userInput} placeholder="Your email" onChange={this.handleInput} />
+                  <input type="email" id="email" value={userInput} placeholder={t("Tu correo electrónico")} onChange={this.handleInput} />
                   <div className="details-label">
                     <Form />
                   </div>
                 </label>
               </div>
-              <Button btnClass="bg-blue" text="Get inspired" click={this.handleSubmit} />
+              <Button btnClass="bg-blue" text="Inspírate" click={this.handleSubmit} />
             </form>
           </div>
         </div>
-        <span className="privacy">
-          By signing up, you agree to receive promotional emails. You can
-          unsubscribe at any time. For more information, read our
-          {' '}
-          <a href="www.privacy" className="link">
-            Privacy statement
-          </a>
-          .
-        </span>
+        <span className="privacy">{t("Al suscribirte, aceptas recibir correos promocionales. Puedes darte de baja cuando quieras. Para más información, consulta nuestra")}{t(' ')}
+          <a href="www.privacy" className="link">{t("Política de privacidad")}</a>{t(".")}</span>
       </div>
     );
   }

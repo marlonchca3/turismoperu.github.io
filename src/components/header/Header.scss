@@ -81,3 +81,25 @@
     padding: 0.5rem 6rem;
   }
 }
+
+.header-container .navigation-bar {
+  gap: 0.75rem;
+  min-width: 0;
+
+  .left { flex-shrink: 0; }
+}
+
+@media (max-width: 1199px) {
+  .show-search-bar-header {
+    .navigation-bar .left .top-search-bar { display: none; }
+    .bottom-search-bar { display: block; }
+  }
+}
+
+@media (min-width: 1200px) {
+  .show-search-bar-header .top-search-bar {
+    min-width: 0;
+
+    input { width: clamp(10rem, 17vw, 16rem); }
+  }
+}

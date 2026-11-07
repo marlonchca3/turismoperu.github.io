@@ -1,3 +1,4 @@
+import { useTranslation } from '../../i18n/LanguageContext';
 import React from 'react';
 import PropTypes from 'prop-types';
 import './ActivityDuration.scss';
@@ -6,13 +7,16 @@ import { ReactComponent as Duration } from '../../assets/svgs/aboutTour/duration
 
 const ActivityDuration = ({
   page, duration, position,
-}) => (
-  <div className={`activity-duration ${page} ${position}`}>
+}) => {
+  const { t } = useTranslation();
+  return (
+<div className={`activity-duration ${page} ${position}`}>
     {position === 'top' ? <Time /> : <Duration />}
-    <div className="activity-duration-title">Duration:</div>
-    <span>{duration}</span>
+    <div className="activity-duration-title">{t("Duración:")}</div>
+    <span>{t(duration)}</span>
   </div>
-);
+  );
+};
 
 export default ActivityDuration;
 

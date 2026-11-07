@@ -1,3 +1,4 @@
+import { DEFAULT_LANGUAGE_CONTEXT, LanguageContext } from '../../i18n/LanguageContext';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -14,27 +15,27 @@ import { capitalCase } from '../../utils/capital-case';
 import './Results.scss';
 
 const SELECT_SORT = [
-  'Recommended',
-  'Price (Low to High)',
-  'Price (High to Low)',
-  'Rating (High to Low)',
+  'Recomendados',
+  'Precio (de menor a mayor)',
+  'Precio (de mayor a menor)',
+  'Valoración (de mayor a menor)',
 ];
 
 export const SERVICES = [
-  { name: 'Private Tour', id: 'private-tour' },
-  { name: 'Wheelchair accessible', id: 'wheelchair-accessible' },
-  { name: 'Skip the line', id: 'skip-the-line' },
-  { name: 'Hotel pickup possible', id: 'hotel-pickup' },
-  { name: 'Small group', id: 'small-group' },
-  { name: 'Additional health', id: 'additional-health' },
+  { name: 'Tour privado', id: 'private-tour' },
+  { name: 'Accesible en silla de ruedas', id: 'wheelchair-accessible' },
+  { name: 'Sin filas', id: 'skip-the-line' },
+  { name: 'Recogida en el hotel', id: 'hotel-pickup' },
+  { name: 'Grupo reducido', id: 'small-group' },
+  { name: 'Medidas de salud adicionales', id: 'additional-health' },
 ];
 
 export const DURATION = [
-  { name: '0-3 hours', id: '0-3' },
-  { name: '3-5 hours', id: '3-5' },
-  { name: '5-7 hours', id: '5-7' },
-  { name: 'Full day (7 + hours)', id: '7' },
-  { name: 'Multi Day', id: 'n' },
+  { name: '0-3 horas', id: '0-3' },
+  { name: '3-5 horas', id: '3-5' },
+  { name: '5-7 horas', id: '5-7' },
+  { name: 'Día completo (7 horas o más)', id: '7' },
+  { name: 'Varios días', id: 'n' },
 ];
 
 export const PRICE = [
@@ -52,6 +53,8 @@ export const SECTIONS = [
 ];
 
 class Results extends React.Component {
+  static contextType = LanguageContext;
+
   state = {
     openFilters: false,
     optionsSelected: {},
@@ -98,6 +101,7 @@ class Results extends React.Component {
   };
 
   render() {
+    const { t = DEFAULT_LANGUAGE_CONTEXT.t } = this.context;
     const { tours, match } = this.props;
     const { openFilters, optionsSelected } = this.state;
 
@@ -110,15 +114,15 @@ class Results extends React.Component {
           <div className="results-found">
             <span className="searched-input">{capitalCase(match.params.city)}</span>
             <span className="results-number">
-              {`  ${tours.length} tours found.`}
+              {t(`  ${tours.length} tours encontrados.`)}
             </span>
           </div>
           <div className="sort-by">
-            <span>Sort by:</span>
+            <span>{t("Ordenar por:")}</span>
             <select id="sort-by">
               {SELECT_SORT.map((option) => (
                 <option key={option} value={option}>
-                  {option}
+                  {t(option)}
                 </option>
               ))}
             </select>
@@ -126,7 +130,7 @@ class Results extends React.Component {
         </div>
         <div className="main-content">
           <div className="open-filters" onClick={this.openFilters}>
-            <span>Filter results</span>
+            <span>{t("Filtrar resultados")}</span>
             <Caret />
           </div>
           <div

@@ -16,7 +16,7 @@ describe('<TopCities />', () => {
 
   it('renders correct title', () => {
     const wrapper = shallow(<TopCities {...defaultProps} />);
-    expect(wrapper.find('.title').text()).toEqual('Explore our top destinations');
+    expect(wrapper.find('.title').text()).toEqual('Explora nuestros mejores destinos');
   });
 
   it('renders TopCity component', () => {

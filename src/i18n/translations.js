@@ -1,0 +1,228 @@
+const rows = [
+  ['Idioma', 'Language', 'Idioma'],
+  ['Moneda', 'Currency', 'Moeda'],
+  ['Favoritos', 'Wishlist', 'Favoritos'],
+  ['Carrito', 'Basket', 'Carrinho'],
+  ['Ayuda', 'Help', 'Ajuda'],
+  ['Iniciar sesión', 'Log in', 'Entrar'],
+  ['Regístrate', 'Sign up', 'Cadastre-se'],
+  ['Opciones', 'Options', 'Opções'],
+  ['Ejemplo', 'Example', 'Exemplo'],
+  ['Euro (EUR)', 'Euro (EUR)', 'Euro (EUR)'],
+  ['Dólar estadounidense (USD)', 'US dollar (USD)', 'Dólar americano (USD)'],
+  ['Sol peruano (PEN)', 'Peruvian sol (PEN)', 'Sol peruano (PEN)'],
+  ['Real brasileño (BRL)', 'Brazilian real (BRL)', 'Real brasileiro (BRL)'],
+  ['Reserva tu experiencia', 'Book your experience', 'Reserve sua experiência'],
+  ['Fecha de la actividad', 'Activity date', 'Data da atividade'],
+  ['Personas', 'Travelers', 'Pessoas'],
+  ['Pasarela de pago', 'Payment gateway', 'Gateway de pagamento'],
+  ['Simular pago y confirmar reserva', 'Simulate payment and confirm booking', 'Simular pagamento e confirmar reserva'],
+  ['Pago de demostración', 'Demo payment', 'Pagamento de demonstração'],
+  ['Este sitio es una demostración. No se realizará ningún cobro real ni se solicitarán datos de tarjeta.', 'This site is a demo. No real charge will be made and no card details will be requested.', 'Este site é uma demonstração. Nenhuma cobrança real será feita e nenhum dado de cartão será solicitado.'],
+  ['Reserva confirmada (demo)', 'Booking confirmed (demo)', 'Reserva confirmada (demo)'],
+  ['Tu código de reserva es', 'Your booking code is', 'Seu código de reserva é'],
+  ['Volver al inicio', 'Back to home', 'Voltar ao início'],
+  ['No encontramos esta actividad.', 'We could not find this activity.', 'Não encontramos esta atividade.'],
+  ['Elige una fecha válida a partir de hoy.', 'Choose a valid date from today onward.', 'Escolha uma data válida a partir de hoje.'],
+  ['Niubiz (simulación)', 'Niubiz (simulation)', 'Niubiz (simulação)'],
+  ['Mercado Pago (simulación)', 'Mercado Pago (simulation)', 'Mercado Pago (simulação)'],
+  ['Buscar', 'Search', 'Buscar'],
+  ['¿A dónde vas?', 'Where are you going?', 'Para onde você vai?'],
+  ['Descubre tours, actividades y destinos del Perú', 'Discover tours, activities and destinations in Peru', 'Descubra passeios, atividades e destinos no Peru'],
+  ['Explora nuestros mejores destinos', 'Explore our top destinations', 'Explore nossos melhores destinos'],
+  ['Lugares y actividades imperdibles', 'Unmissable sights and activities', 'Lugares e atividades imperdíveis'],
+  ['Experiencias extraordinarias', 'Extraordinary experiences', 'Experiências extraordinárias'],
+  ['Reservas flexibles', 'Flexible booking', 'Reservas flexíveis'],
+  ['Si tus planes cambian, cancela hasta 24 horas antes en la mayoría de los tours y actividades para recibir un reembolso completo.', 'If your plans change, cancel most tours and activities up to 24 hours in advance for a full refund.', 'Se seus planos mudarem, cancele a maioria dos passeios e atividades com até 24 horas de antecedência para receber um reembolso integral.'],
+  ['Acceso más rápido', 'Faster access', 'Acesso mais rápido'],
+  ['Evita las largas filas y disfruta de los lugares del Perú que siempre quisiste conocer.', 'Skip long queues and enjoy the places in Peru you have always wanted to visit.', 'Evite filas e aproveite os lugares do Peru que você sempre quis conhecer.'],
+  ['Atención cercana', 'Friendly support', 'Atendimento próximo'],
+  ['Estamos disponibles para ayudarte a vivir una experiencia increíble. Contáctanos por teléfono, correo o WhatsApp.', 'We are here to help you enjoy an incredible experience. Contact us by phone, email or WhatsApp.', 'Estamos disponíveis para ajudar você a viver uma experiência incrível. Entre em contato por telefone, e-mail ou WhatsApp.'],
+  ['Entradas a atracciones', 'Attraction tickets', 'Ingressos para atrações'],
+  ['Visitas turísticas', 'Sightseeing tours', 'Passeios turísticos'],
+  ['Comida y bebida', 'Food and drink', 'Comida e bebida'],
+  ['Excursiones de un día', 'Day trips', 'Excursões de um dia'],
+  ['Cultura local', 'Local culture', 'Cultura local'],
+  ['Paseos en barco', 'Boat tours', 'Passeios de barco'],
+  ['Transporte', 'Transportation', 'Transporte'],
+  ['Naturaleza y aventura', 'Nature and adventure', 'Natureza e aventura'],
+  ['Autobús turístico', 'Sightseeing bus', 'Ônibus turístico'],
+  ['Tarjetas turísticas', 'City cards', 'Cartões turísticos'],
+  ['Duración:', 'Duration:', 'Duração:'],
+  ['Desde', 'From', 'A partir de'],
+  ['Cancelación gratuita hasta 24 horas antes', 'Free cancellation up to 24 hours in advance', 'Cancelamento gratuito com até 24 horas de antecedência'],
+  ['Consulta la disponibilidad', 'Check availability', 'Consulte a disponibilidade'],
+  ['Encuentra tu próxima aventura', 'Find your next adventure', 'Encontre sua próxima aventura'],
+  ['machupicchiperu Original', 'machupicchiperu Original', 'machupicchiperu Original'],
+  ['Las mejores atracciones del Perú', 'Top attractions in Peru', 'As melhores atrações do Peru'],
+  ['Destinos destacados', 'Top destinations', 'Destinos em destaque'],
+  ['Lugares del Perú para visitar', 'Places to visit in Peru', 'Lugares para visitar no Peru'],
+  ['Categorías de actividades populares', 'Popular activity categories', 'Categorias de atividades populares'],
+  ['Ver más', 'Show more', 'Ver mais'],
+  ['Ver menos', 'Show less', 'Ver menos'],
+  ['Tu próxima aventura te espera', 'Your next adventure awaits', 'Sua próxima aventura espera por você'],
+  ['Suscríbete a nuestro boletín y descubre experiencias de viaje por el Perú que querrás vivir.', 'Subscribe to our newsletter and discover travel experiences in Peru you will want to try.', 'Assine nossa newsletter e descubra experiências de viagem pelo Peru que você vai querer viver.'],
+  ['Tu correo electrónico', 'Your email', 'Seu e-mail'],
+  ['Inspírate', 'Get inspired', 'Inspire-se'],
+  ['Al suscribirte, aceptas recibir correos promocionales. Puedes darte de baja cuando quieras. Para más información, consulta nuestra', 'By signing up, you agree to receive promotional emails. You can unsubscribe at any time. For more information, read our', 'Ao se inscrever, você concorda em receber e-mails promocionais. Você pode cancelar a inscrição a qualquer momento. Para mais informações, consulte nossa'],
+  ['Política de privacidad', 'Privacy policy', 'Política de privacidade'],
+  ['Aplicación móvil', 'Mobile app', 'Aplicativo móvel'],
+  ['Formas de pago', 'Payment methods', 'Formas de pagamento'],
+  ['Contacto', 'Contact', 'Contato'],
+  ['Legal', 'Legal', 'Informações legais'],
+  ['Condiciones de uso', 'Terms of use', 'Termos de uso'],
+  ['Sobre nosotros', 'About us', 'Sobre nós'],
+  ['Empleo', 'Careers', 'Carreiras'],
+  ['Blog', 'Blog', 'Blog'],
+  ['Prensa', 'Press', 'Imprensa'],
+  ['Tarjetas de regalo', 'Gift cards', 'Cartões-presente'],
+  ['Revista', 'Magazine', 'Revista'],
+  ['Administración de proveedores', 'Supplier administration', 'Administração de fornecedores'],
+  ['Administración de afiliados', 'Affiliate administration', 'Administração de afiliados'],
+  ['Empresa', 'Company', 'Empresa'],
+  ['Trabaja con nosotros', 'Work with us', 'Trabalhe conosco'],
+  ['© machupicchiperu. Turismo y experiencias en Perú.', '© machupicchiperu. Travel and experiences in Peru.', '© machupicchiperu. Turismo e experiências no Peru.'],
+  ['Libra esterlina', 'British pound', 'Libra esterlina'],
+  ['Dólar de Hong Kong', 'Hong Kong dollar', 'Dólar de Hong Kong'],
+  ['Kuna croata', 'Croatian kuna', 'Kuna croata'],
+  ['Florín húngaro', 'Hungarian forint', 'Florim húngaro'],
+  ['Rupia indonesia', 'Indonesian rupiah', 'Rupia indonésia'],
+  ['Rupia india', 'Indian rupee', 'Rupia indiana'],
+  ['Yen japonés', 'Japanese yen', 'Iene japonês'],
+  ['Won surcoreano', 'South Korean won', 'Won sul-coreano'],
+  ['Dírham marroquí', 'Moroccan dirham', 'Dirham marroquino'],
+  ['Recomendados', 'Recommended', 'Recomendados'],
+  ['Precio (de menor a mayor)', 'Price (low to high)', 'Preço (menor para maior)'],
+  ['Precio (de mayor a menor)', 'Price (high to low)', 'Preço (maior para menor)'],
+  ['Valoración (de mayor a menor)', 'Rating (high to low)', 'Avaliação (maior para menor)'],
+  ['Ordenar por:', 'Sort by:', 'Ordenar por:'],
+  ['Filtrar resultados', 'Filter results', 'Filtrar resultados'],
+  ['Precio', 'Price', 'Preço'],
+  ['Duración', 'Duration', 'Duração'],
+  ['Servicios', 'Services', 'Serviços'],
+  ['Tour privado', 'Private tour', 'Passeio privativo'],
+  ['Accesible en silla de ruedas', 'Wheelchair accessible', 'Acessível para cadeirantes'],
+  ['Sin filas', 'Skip the line', 'Sem filas'],
+  ['Recogida en el hotel', 'Hotel pickup', 'Busca no hotel'],
+  ['Grupo reducido', 'Small group', 'Grupo pequeno'],
+  ['Medidas de salud adicionales', 'Additional health measures', 'Medidas adicionais de saúde'],
+  ['Día completo (7 horas o más)', 'Full day (7 hours or more)', 'Dia inteiro (7 horas ou mais)'],
+  ['Varios días', 'Multiple days', 'Vários dias'],
+  ['Sin resultados', 'No results', 'Nenhum resultado'],
+  ['Buscamos por todas partes, pero no encontramos resultados.', 'We searched everywhere but could not find any results.', 'Procuramos por toda parte, mas não encontramos resultados.'],
+  ['Prueba con otra búsqueda o', 'Try another search or', 'Tente outra busca ou'],
+  ['contáctanos', 'contact us', 'entre em contato'],
+  ['y te ayudaremos a encontrar la experiencia ideal.', 'and we will help you find the perfect experience.', 'e ajudaremos você a encontrar a experiência ideal.'],
+  ['Descubre Cusco, una ciudad de calles de piedra, plazas llenas de historia y tradiciones andinas. Pasea por su centro histórico y encuentra inspiración para conocer Machu Picchu.', 'Discover Cusco, a city of stone streets, historic squares and Andean traditions. Explore its historic center and find inspiration for visiting Machu Picchu.', 'Descubra Cusco, uma cidade de ruas de pedra, praças históricas e tradições andinas. Explore seu centro histórico e encontre inspiração para conhecer Machu Picchu.'],
+  ['Conoce Arequipa, la Ciudad Blanca del Perú. Descubre su arquitectura de sillar, pasea por la Plaza de Armas y disfruta de los sabores de su cocina tradicional.', 'Explore Arequipa, the White City of Peru. Discover its volcanic stone architecture, stroll through the Plaza de Armas and enjoy its traditional cuisine.', 'Conheça Arequipa, a Cidade Branca do Peru. Descubra sua arquitetura de pedra vulcânica, passeie pela Plaza de Armas e saboreie sua culinária tradicional.'],
+  ['Explora Ica y el oasis de Huacachina. Descubre una laguna rodeada de palmeras, paisajes de dunas y atardeceres en el desierto peruano.', 'Explore Ica and the Huacachina oasis. Discover a palm-lined lagoon, sand dunes and sunsets in the Peruvian desert.', 'Explore Ica e o oásis de Huacachina. Descubra uma lagoa cercada de palmeiras, dunas e pores do sol no deserto peruano.'],
+  ['Centro histórico de Cusco', 'Cusco historic center', 'Centro histórico de Cusco'],
+  ['Centro histórico de Arequipa', 'Arequipa historic center', 'Centro histórico de Arequipa'],
+  ['Catedral de Arequipa', 'Arequipa Cathedral', 'Catedral de Arequipa'],
+  ['Oasis de Huacachina', 'Huacachina oasis', 'Oásis de Huacachina'],
+  ['Dunas de Ica', 'Ica sand dunes', 'Dunas de Ica'],
+  ['Laguna de Huacachina', 'Huacachina lagoon', 'Lagoa de Huacachina'],
+  ['Andes de Machu Picchu', 'Machu Picchu Andes', 'Andes de Machu Picchu'],
+  ['Cusco histórico', 'Historic Cusco', 'Cusco histórico'],
+  ['Arequipa monumental', 'Monumental Arequipa', 'Arequipa monumental'],
+  ['Andes peruanos', 'Peruvian Andes', 'Andes peruanos'],
+  ['descubre la ciudadela inca', 'discover the Inca citadel', 'descubra a cidadela inca'],
+  ['recorrido por el centro histórico', 'historic center tour', 'passeio pelo centro histórico'],
+  ['paseo por San Blas', 'walk through San Blas', 'passeio por San Blas'],
+  ['historia y cultura local', 'local history and culture', 'história e cultura local'],
+  ['sabores de la cocina peruana', 'flavors of Peruvian cuisine', 'sabores da culinária peruana'],
+  ['visita a la Plaza de Armas', 'visit to the Plaza de Armas', 'visita à Plaza de Armas'],
+  ['paseo fotográfico por la ciudad', 'city photography walk', 'passeio fotográfico pela cidade'],
+  ['tradiciones y rincones históricos', 'traditions and historic corners', 'tradições e recantos históricos'],
+  ['recorrido por la Ciudad Blanca', 'White City tour', 'passeio pela Cidade Branca'],
+  ['arquitectura de sillar', 'volcanic stone architecture', 'arquitetura de pedra vulcânica'],
+  ['sabores de las picanterías', 'flavors of traditional picanterías', 'sabores das picanterías tradicionais'],
+  ['paseo por el centro histórico', 'walk through the historic center', 'passeio pelo centro histórico'],
+  ['historia de la catedral', 'history of the cathedral', 'história da catedral'],
+  ['paseo fotográfico', 'photography walk', 'passeio fotográfico'],
+  ['cultura y tradiciones locales', 'local culture and traditions', 'cultura e tradições locais'],
+  ['descubre el oasis de Huacachina', 'discover the Huacachina oasis', 'descubra o oásis de Huacachina'],
+  ['paseo junto a la laguna', 'walk along the lagoon', 'passeio à beira da lagoa'],
+  ['paisajes del desierto', 'desert landscapes', 'paisagens do deserto'],
+  ['atardecer entre dunas', 'sunset among the dunes', 'pôr do sol entre as dunas'],
+  ['sabores y tradiciones', 'flavors and traditions', 'sabores e tradições'],
+  ['descubre el paisaje de sus dunas', 'discover the dune landscape', 'descubra a paisagem das dunas'],
+  ['naturaleza y cultura local', 'nature and local culture', 'natureza e cultura local'],
+  ['paseos por el centro histórico', 'historic center walks', 'passeios pelo centro histórico'],
+  ['arquitectura y cultura', 'architecture and culture', 'arquitetura e cultura'],
+  ['visitas a Huacachina', 'visits to Huacachina', 'visitas a Huacachina'],
+  ['visitas a la ciudadela', 'citadel visits', 'visitas à cidadela'],
+  ['recorridos por San Blas', 'San Blas tours', 'passeios por San Blas'],
+  ['paseos por la Plaza de Armas', 'Plaza de Armas walks', 'passeios pela Plaza de Armas'],
+  ['paseos junto a la laguna', 'lagoon walks', 'passeios à beira da lagoa'],
+  ['gastronomía peruana', 'Peruvian cuisine', 'gastronomia peruana'],
+  ['cocina de las picanterías', 'traditional picantería cuisine', 'culinária das picanterías'],
+  ['fotografía de la ciudad', 'city photography', 'fotografia da cidade'],
+  ['recorridos a pie', 'walking tours', 'passeios a pé'],
+  ['atardeceres en las dunas', 'sunsets in the dunes', 'pores do sol nas dunas'],
+  ['cultura andina', 'Andean culture', 'cultura andina'],
+  ['tradiciones locales', 'local traditions', 'tradições locais'],
+  ['historia inca', 'Inca history', 'história inca'],
+  ['plazas y calles de piedra', 'squares and stone streets', 'praças e ruas de pedra'],
+  ['edificios de sillar', 'volcanic stone buildings', 'edifícios de pedra vulcânica'],
+  ['naturaleza y aventura', 'nature and adventure', 'natureza e aventura'],
+  ['museos y patrimonio', 'museums and heritage', 'museus e patrimônio'],
+  ['sabores del Perú', 'flavors of Peru', 'sabores do Peru'],
+  ['recorridos fotográficos', 'photography tours', 'passeios fotográficos'],
+  ['paisajes de montaña', 'mountain landscapes', 'paisagens de montanha'],
+  ['mercados tradicionales', 'traditional markets', 'mercados tradicionais'],
+  ['rincones del centro histórico', 'historic center highlights', 'recantos do centro histórico'],
+  ['paseos por las dunas', 'dune walks', 'passeios pelas dunas'],
+  ['experiencias culturales', 'cultural experiences', 'experiências culturais'],
+  ['visitas turísticas', 'sightseeing tours', 'passeios turísticos'],
+  ['descubre el oasis', 'discover the oasis', 'descubra o oásis'],
+  ['cultura y naturaleza', 'culture and nature', 'cultura e natureza'],
+  ['viajes por los Andes', 'Andean journeys', 'viagens pelos Andes'],
+  ['patrimonio peruano', 'Peruvian heritage', 'patrimônio peruano'],
+  ['gastronomía local', 'local cuisine', 'gastronomia local'],
+  ['rutas de historia', 'historic routes', 'rotas históricas'],
+  ['experiencias y destinos', 'experiences and destinations', 'experiências e destinos'],
+  ['Destinos turísticos del Perú', 'Travel destinations in Peru', 'Destinos turísticos do Peru'],
+];
+
+const normalize = (text) => text.replace(/\s+/g, ' ').trim();
+const messages = Object.fromEntries(rows.map(([es, en, pt]) => [es, { en, pt }]));
+
+function translateMessage(text, language = 'es') {
+  if (typeof text !== 'string' || language === 'es') return text;
+  const value = normalize(text);
+  if (messages[value]) return messages[value][language] || text;
+  let match = value.match(/^Encuentra más actividades en (.+)$/);
+  if (match) return `${language === 'en' ? 'Find more activities in' : 'Encontre mais atividades em'} ${match[1]}`;
+  match = value.match(/^Los lugares más emblemáticos de (.+)$/);
+  if (match) return language === 'en' ? `${match[1]} most iconic sights` : `Os lugares mais emblemáticos de ${match[1]}`;
+  match = value.match(/^(\d+) tours encontrados\.$/);
+  if (match) return `${match[1]} ${language === 'en' ? 'tours found.' : 'passeios encontrados.'}`;
+  match = value.match(/^(.+) tours y actividades$/);
+  if (match) return `${match[1]} ${language === 'en' ? 'tours and activities' : 'passeios e atividades'}`;
+  if (value.includes(' - ') && /(?:horas|días|minutos)/.test(value)) {
+    return value.split(' - ').map((part) => translate(part, language)).join(' – ');
+  }
+  match = value.match(/^(\d+(?:\.\d+)?(?:\s*-\s*\d+(?:\.\d+)?)?) (horas|días|minutos)$/);
+  if (match) {
+    const units = { horas: ['hours', 'horas'], días: ['days', 'dias'], minutos: ['minutes', 'minutos'] };
+    let unit = units[match[2]][language === 'en' ? 0 : 1];
+    if (match[1] === '1') unit = unit.slice(0, -1);
+    return `${match[1]} ${unit}`;
+  }
+  match = value.match(/^(\d+) opiniones$/);
+  if (match) return `${match[1]} ${language === 'en' ? 'reviews' : 'avaliações'}`;
+  match = value.match(/^Descubre (.+) y disfruta de sus paisajes, su historia y sus tradiciones\. Una experiencia para conocer los rincones del Perú y su cultura local\.$/);
+  if (match) return language === 'en' ? `Discover ${match[1]} and enjoy its landscapes, history and traditions. An experience to explore Peru and its local culture.` : `Descubra ${match[1]} e aproveite suas paisagens, história e tradições. Uma experiência para conhecer os recantos do Peru e sua cultura local.`;
+  if (value.endsWith(', Perú')) return `${translate(value.slice(0, -6), language)}, Peru`;
+  match = value.match(/^([^:]+): (.+)$/);
+  if (match) return `${match[1] === 'Perú' ? 'Peru' : match[1]}: ${translate(match[2], language)}`;
+  return text;
+}
+
+export function translate(text, language = 'es') {
+  if (typeof text !== 'string' || language === 'es') return text;
+  const translated = translateMessage(text, language);
+  if (translated === text) return text;
+  return `${text.match(/^\s*/)[0]}${translated}${text.match(/\s*$/)[0]}`;
+}
