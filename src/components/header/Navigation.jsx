@@ -10,6 +10,7 @@ import { ReactComponent as Caret } from '../../assets/svgs/caret.svg';
 import Button from '../button/Button';
 import { CURRENCIES } from '../../booking/money';
 import { useBooking } from '../../booking/BookingContext';
+import WhatsAppBubble from '../whatsapp/WhatsAppBubble';
 
 export const ICONS = [
   { id: 'language', text: 'Español' },
@@ -77,6 +78,9 @@ const NavigationList = ({ enforceCurrencyAndLang }) => {
         {renderDropdown(icon.id, t)}
       </div>
     ))}
+    <div className="whatsapp-nav-item">
+      <WhatsAppBubble />
+    </div>
     <div className={`signup-btn ${enforceCurrencyAndLang ? 'show-ipad' : ''}`}>
       <Button btnClass="bg-blue" text="Regístrate" />
     </div>

@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { LanguageProvider } from '../../i18n/LanguageContext';
 import WhatsAppBubble from './WhatsAppBubble';
 
-test('links to WhatsApp with the configured contact and a prefilled message', () => {
+test('links to WhatsApp from the menu with the configured contact and a prefilled message', () => {
   const { getByLabelText } = render(
     <LanguageProvider>
       <WhatsAppBubble />
