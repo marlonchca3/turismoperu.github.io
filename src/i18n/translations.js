@@ -12,6 +12,8 @@ const rows = [
   ['Dólar estadounidense (USD)', 'US dollar (USD)', 'Dólar americano (USD)'],
   ['Sol peruano (PEN)', 'Peruvian sol (PEN)', 'Sol peruano (PEN)'],
   ['Real brasileño (BRL)', 'Brazilian real (BRL)', 'Real brasileiro (BRL)'],
+  ['¿Tienes dudas? Escríbenos', 'Questions? Chat with us', 'Ficou com dúvidas? Fale conosco'],
+  ['Hola, quisiera hacer una consulta sobre sus tours.', 'Hello, I would like to ask a question about your tours.', 'Olá, gostaria de tirar uma dúvida sobre os passeios.'],
   ['Reserva tu experiencia', 'Book your experience', 'Reserve sua experiência'],
   ['Fecha de la actividad', 'Activity date', 'Data da atividade'],
   ['Personas', 'Travelers', 'Pessoas'],

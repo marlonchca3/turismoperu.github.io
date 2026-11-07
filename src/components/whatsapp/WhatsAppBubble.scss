@@ -1,0 +1,99 @@
+.whatsapp-bubble {
+  position: fixed;
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 1000;
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #25d366, #0da95a);
+  box-shadow: 0 0.65rem 1.5rem rgba(17, 119, 68, 0.3);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  animation: whatsapp-entrance 550ms 350ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.whatsapp-bubble::before {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  border-radius: inherit;
+  content: "";
+  inset: -4px;
+  animation: whatsapp-ring 2.8s 1s ease-out infinite;
+  pointer-events: none;
+}
+
+.whatsapp-bubble:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0.9rem 2rem rgba(17, 119, 68, 0.38);
+  filter: saturate(1.1);
+}
+
+.whatsapp-bubble:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.whatsapp-bubble:focus-visible {
+  outline: 3px solid #1a2b49;
+  outline-offset: 4px;
+}
+
+.whatsapp-bubble-icon {
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+@keyframes whatsapp-entrance {
+  from { opacity: 0; transform: translateY(1rem) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes whatsapp-ring {
+  0% { opacity: 0.7; transform: scale(1); }
+  75%,
+  100% { opacity: 0; transform: scale(1.16); }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-bubble {
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    width: 3.6rem;
+    min-height: 3.6rem;
+    padding: 0;
+  }
+
+  .whatsapp-bubble span {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  .whatsapp-bubble-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-bubble,
+  .whatsapp-bubble::before {
+    animation: none;
+    transition: none;
+  }
+}
